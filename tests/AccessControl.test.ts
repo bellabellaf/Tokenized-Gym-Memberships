@@ -82,7 +82,7 @@ class AccessControlMock {
     return { ok: true, value: true };
   }
 
-  setMembershipNftContract(contractPrincipal: string): Result<boolean> {
+  setMembershipNftContract(contractPrincipal: string): Result<boolean | number> {
     if (!this.state.authorityContract)
       return { ok: false, value: ERR_INVALID_AUTHORITY };
     if (this.caller !== this.state.authorityContract)
@@ -93,7 +93,7 @@ class AccessControlMock {
     return { ok: true, value: true };
   }
 
-  setMaxAccessLimit(newLimit: number): Result<boolean> {
+  setMaxAccessLimit(newLimit: number): Result<boolean | number> {
     if (!this.state.authorityContract)
       return { ok: false, value: ERR_INVALID_AUTHORITY };
     if (this.caller !== this.state.authorityContract)
@@ -103,7 +103,7 @@ class AccessControlMock {
     return { ok: true, value: true };
   }
 
-  registerGym(gymId: number, name: string, maxAccess: number): Result<boolean> {
+  registerGym(gymId: number, name: string, maxAccess: number): Result<boolean | number> {
     if (!this.state.authorityContract)
       return { ok: false, value: ERR_INVALID_AUTHORITY };
     if (this.caller !== this.state.authorityContract)
@@ -143,7 +143,7 @@ class AccessControlMock {
     return { ok: true, value: true };
   }
 
-  toggleGymStatus(gymId: number, isActive: boolean): Result<boolean> {
+  toggleGymStatus(gymId: number, isActive: boolean): Result<boolean | number> {
     if (!this.state.authorityContract)
       return { ok: false, value: ERR_INVALID_AUTHORITY };
     if (this.caller !== this.state.authorityContract)
